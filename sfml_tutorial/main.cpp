@@ -1,23 +1,12 @@
-#include <SFML\Graphics.hpp>
+#include <SFML\Graphics.hpp>;
+#include "ChessBoard.h";
+using namespace sf;
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
+	RenderWindow window(VideoMode(512, 512), "SFML Tutorial", Style::Titlebar | Style::Close);
+	window.setFramerateLimit(60);	
 
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
-
-		window.clear();
-		window.draw(shape);
-		window.display();
-	}
+	ChessBoard board(window);
 	return 0;
 }
