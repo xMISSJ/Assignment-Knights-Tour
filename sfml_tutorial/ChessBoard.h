@@ -11,7 +11,7 @@ using std::vector;
 	{
 	private:
 		vector<RectangleShape>		_tiles;
-		vector<SpriteRenderer>		_sprites;
+		vector<SpriteRenderer*>		_sprites;
 		Knight						_knightRenderer;
 		Clock						_deltaClock;
 

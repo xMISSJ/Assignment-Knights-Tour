@@ -5,7 +5,7 @@ ChessBoard::ChessBoard(RenderWindow &window)
 	float width = window.getSize().x / 8, height = window.getSize().y / 8;
 	_knightRenderer.Initialize("Textures/Knight.png", width, height);
 	
-	_sprites.push_back(_knightRenderer);
+	_sprites.emplace_back(&_knightRenderer);
 	InitializeTiles(width, height);
 
 	while (window.isOpen())
@@ -35,7 +35,7 @@ void ChessBoard::InitializeTiles(int width, int height)
 			Color c = ((x + y) % 2) == 0 ? Color(50, 50, 50, 255) : Color(0, 100, 100, 255);
 			tile.setFillColor(c);			
 
-			_tiles.push_back(tile);
+			_tiles.emplace_back(tile);
 		}
 	}
 }
@@ -43,10 +43,10 @@ void ChessBoard::InitializeTiles(int width, int height)
 void ChessBoard::Update()
 {
 	Time deltatime = _deltaClock.restart();
-	for (vector<SpriteRenderer>::iterator it = _sprites.begin();
+	for (vector<SpriteRenderer*>::iterator it = _sprites.begin();
 		it < _sprites.end(); ++it)
 	{
-		it->Update(deltatime);
+		(*it)->Update(deltatime);
 	}	
 }
 
@@ -58,10 +58,10 @@ void ChessBoard::Draw(RenderWindow &window)
 		window.draw(*it);
 	}
 
-	for (vector<SpriteRenderer>::iterator it = _sprites.begin();
+	for (vector<SpriteRenderer*>::iterator it = _sprites.begin();
 		it != _sprites.end(); ++it)
 	{
-		it->Draw(window);
+		(*it)->Draw(window);
 	}
 	DrawChessBoard(window);
 }
