@@ -1,8 +1,10 @@
 #include "ChessBoard.h";
 
-ChessBoard::ChessBoard(RenderWindow &window)
+ChessBoard::ChessBoard(RenderWindow &window, int userInput)
 {
-	float width = window.getSize().x / 8, height = window.getSize().y / 8;
+	this->userInput = userInput;
+
+	float width = window.getSize().x / userInput, height = window.getSize().y / userInput;
 	_knightRenderer.Initialize("Textures/Knight.png", width, height);
 
 	_sprites.emplace_back(&_knightRenderer);
@@ -25,14 +27,13 @@ ChessBoard::ChessBoard(RenderWindow &window)
 
 void ChessBoard::InitializeTiles(int width, int height)
 {
-	cin >> userInput;
 
 	if (userInput < 5 || userInput > 8) {
 		cout << "Invalid input. Please pick a number between 5 and 8.";
 	}
 
 	for (int y = 0; y < userInput; y++)
-	{
+	{	
 		for (int x = 0; x < userInput; x++)
 		{
 			RectangleShape tile(Vector2f(width, height));

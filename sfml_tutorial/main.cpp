@@ -5,9 +5,11 @@ using namespace sf;
 
 int main()
 {
+	int userInput;
+	cin >> userInput;
 	RenderWindow window(VideoMode(512, 512), "SFML Tutorial", Style::Titlebar | Style::Close);
-	window.setFramerateLimit(60);	
+	window.setFramerateLimit(60);
 
-	ChessBoard board(window);
+	ChessBoard board(window, userInput);
 	return 0;
 }

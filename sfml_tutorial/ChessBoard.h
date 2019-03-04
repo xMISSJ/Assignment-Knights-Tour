@@ -24,7 +24,7 @@ using std::vector;
 		void DrawChessBoard(RenderWindow &window);
 
 	public:
-		ChessBoard(RenderWindow &window); //constructor
+		ChessBoard(RenderWindow &window, int userInput); //constructor
 		~ChessBoard(); //destructor
 	};
 
