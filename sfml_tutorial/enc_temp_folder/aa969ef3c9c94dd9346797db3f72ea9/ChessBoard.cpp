@@ -2,25 +2,25 @@
 
 ChessBoard::ChessBoard(RenderWindow &window)
 {
-	float width = window.getSize().x / 8, height = window.getSize().y / 8;
-	_knightRenderer.Initialize("Textures/Knight.png", width, height);
+		float width = window.getSize().x / 8, height = window.getSize().y / 8;
+		_knightRenderer.Initialize("Textures/Knight.png", width, height);
 
-	_sprites.emplace_back(&_knightRenderer);
-	InitializeTiles(width, height);
+		_sprites.emplace_back(&_knightRenderer);
+		InitializeTiles(width, height);
 
-	while (window.isOpen())
-	{
-		Event event;
-		while (window.pollEvent(event))
+		while (window.isOpen())
 		{
-			if (event.type == Event::Closed)
-				window.close();
+			Event event;
+			while (window.pollEvent(event))
+			{
+				if (event.type == Event::Closed)
+					window.close();
+			}
+			window.clear(Color(255, 255, 255, 255));
+			Update();
+			Draw(window);
+			window.display();
 		}
-		window.clear(Color(255, 255, 255, 255));
-		Update();
-		Draw(window);
-		window.display();
-	}
 }
 
 void ChessBoard::InitializeTiles(int width, int height)

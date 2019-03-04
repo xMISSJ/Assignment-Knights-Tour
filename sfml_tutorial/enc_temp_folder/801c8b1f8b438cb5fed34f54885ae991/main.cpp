@@ -1,6 +1,5 @@
 #include <SFML\Graphics.hpp>;
 #include "ChessBoard.h";
-
 using namespace sf;
 
 int main()
