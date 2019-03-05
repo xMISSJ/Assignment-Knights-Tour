@@ -10,9 +10,9 @@ using namespace sf;
 	class SpriteRenderer
 	{
 	protected:
-		Vector2f		_position;
-		RectangleShape	_rectangle;
-		Texture			_texture;
+		Vector2f					_position;
+		RectangleShape		_rectangle;
+		Texture						_texture;
 
 	public:
 		void Initialize(String path, float width, float height);

@@ -5,6 +5,7 @@
 #include "Knight.h"
 #include <iostream>
 #include <string>
+#include <windows.h>
 
 using namespace sf;
 using namespace std;
@@ -13,7 +14,7 @@ using std::vector;
 	class ChessBoard
 	{
 	private:
-		int														userInput;
+		int														sizeInput;
 		int														maxSize;
 		int														minSize;
 		vector<RectangleShape>				_tiles;
@@ -27,7 +28,7 @@ using std::vector;
 		void DrawChessBoard(RenderWindow &window);
 
 	public:
-		ChessBoard(RenderWindow &window, int userInput, int maxSize, int minSize);		// Constructor.
+		ChessBoard(RenderWindow &window, int sizeInput, int maxSize, int minSize);		// Constructor.
 		~ChessBoard();																																// Destructor.
 	};
 

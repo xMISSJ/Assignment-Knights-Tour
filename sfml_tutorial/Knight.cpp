@@ -3,8 +3,8 @@
 void Knight::Update(Time deltaTime)
 {
 	printf("Knight::Update\n");
-	//call the base class's Update function
+	// Calls the base class' Update function.
 	SpriteRenderer::Update(deltaTime);
-
-	//update the knight's position
+	// Update the knight's position.
+	this->_rectangle.setPosition(100, 0);
 }
