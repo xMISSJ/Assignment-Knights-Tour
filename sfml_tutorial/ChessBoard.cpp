@@ -1,8 +1,10 @@
 #include "ChessBoard.h";
 
-ChessBoard::ChessBoard(RenderWindow &window, int userInput)
+ChessBoard::ChessBoard(RenderWindow &window, int userInput, int maxSize, int minSize)
 {
 	this->userInput = userInput;
+	this->maxSize = maxSize;
+	this->minSize = minSize;
 
 	float width = window.getSize().x / userInput, height = window.getSize().y / userInput;
 	_knightRenderer.Initialize("Textures/Knight.png", width, height);
@@ -27,11 +29,6 @@ ChessBoard::ChessBoard(RenderWindow &window, int userInput)
 
 void ChessBoard::InitializeTiles(int width, int height)
 {
-
-	if (userInput < 5 || userInput > 8) {
-		cout << "Invalid input. Please pick a number between 5 and 8.";
-	}
-
 	for (int y = 0; y < userInput; y++)
 	{	
 		for (int x = 0; x < userInput; x++)
@@ -53,7 +50,7 @@ void ChessBoard::Update()
 	for (vector<SpriteRenderer*>::iterator it = _sprites.begin();
 		it < _sprites.end(); ++it)
 	{
-		(*it)->Update(deltatime);
+		//(*it)->Update(deltatime);
 	}
 }
 
@@ -78,7 +75,7 @@ void ChessBoard::DrawChessBoard(RenderWindow &window)
 
 }
 
+// Deletes everything on the heap.
 ChessBoard::~ChessBoard()
 {
-	//delete everything on the heap.
 }

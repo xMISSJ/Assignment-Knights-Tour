@@ -4,6 +4,7 @@
 #include <SFML\Graphics.hpp>
 #include "Knight.h"
 #include <iostream>
+#include <string>
 
 using namespace sf;
 using namespace std;
@@ -13,6 +14,8 @@ using std::vector;
 	{
 	private:
 		int														userInput;
+		int														maxSize;
+		int														minSize;
 		vector<RectangleShape>				_tiles;
 		vector<SpriteRenderer*>				_sprites;
 		Knight												_knightRenderer;
@@ -24,8 +27,8 @@ using std::vector;
 		void DrawChessBoard(RenderWindow &window);
 
 	public:
-		ChessBoard(RenderWindow &window, int userInput); //constructor
-		~ChessBoard(); //destructor
+		ChessBoard(RenderWindow &window, int userInput, int maxSize, int minSize);		// Constructor.
+		~ChessBoard();																																// Destructor.
 	};
 
 #endif
