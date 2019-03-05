@@ -1,4 +1,9 @@
-#include "Knight.h";
+#in#include "Knight.h";
+
+Knight::Knight(int posX, int posY) {
+	this->posX = posX;
+	this->posY = posY;
+}
 
 void Knight::Update(Time deltaTime)
 {
@@ -7,4 +12,9 @@ void Knight::Update(Time deltaTime)
 	SpriteRenderer::Update(deltaTime);
 	// Update the knight's position.
 	this->_rectangle.setPosition(100, 0);
+}
+
+// Deletes everything on the heap.
+Knight::~Knight()
+{
 }
