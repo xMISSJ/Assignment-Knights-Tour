@@ -7,16 +7,16 @@
 //include namespaces that we know we are going to use a lot. 
 using namespace sf;
 
-	class SpriteRenderer
-	{
-	protected:
-		Vector2f					_position;
-		RectangleShape		_rectangle;
-		Texture						_texture;
+class SpriteRenderer
+{
+protected:
+	Vector2f                    _position;
+	RectangleShape						  _rectangle;
+	Texture                     _texture;
 
-	public:
-		void Initialize(String path, float width, float height);
-		virtual void Update(Time deltaTime);
-		virtual void Draw(RenderWindow &window);
-	};
+public:
+	void Initialize(String path, float width, float height);
+	virtual void Update(Time deltaTime);
+	virtual void Draw(RenderWindow &window);
+};
 #endif

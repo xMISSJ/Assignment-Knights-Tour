@@ -11,25 +11,26 @@ using namespace sf;
 using namespace std;
 using std::vector;
 
-	class ChessBoard
-	{
-	private:
-		int														sizeInput;
-		int														maxSize;
-		int														minSize;
-		vector<RectangleShape>				_tiles;
-		vector<SpriteRenderer*>				_sprites;
-		Knight												_knightRenderer;
-		Clock													_deltaClock;
+class ChessBoard
+{
+private:
+	int                              sizeInput;
+	int                              maxSize;
+	int                              minSize;
+	Vector2f                         position;
+	vector<RectangleShape>           _tiles;
+	vector<SpriteRenderer*>          _sprites;
+	Knight                           _knightRenderer;
+	Clock                            _deltaClock;
 
-		void Update();
-		void InitializeTiles(int w, int h);
-		void Draw(RenderWindow &window);
-		void DrawChessBoard(RenderWindow &window);
+	void Update();
+	void InitializeTiles(int w, int h);
+	void Draw(RenderWindow &window);
+	void DrawChessBoard(RenderWindow &window);
 
-	public:
-		ChessBoard(RenderWindow &window, int sizeInput, int maxSize, int minSize);		// Constructor.
-		~ChessBoard();																																// Destructor.
-	};
+public:
+	ChessBoard(RenderWindow &window, int sizeInput, int maxSize, int minSize, Vector2f position);        // Constructor.
+	~ChessBoard();                                                                                       // Destructor.
+};
 
 #endif

@@ -1,8 +1,13 @@
-#in#include "Knight.h";
+#include "Knight.h";
 
-Knight::Knight(int posX, int posY) {
-	this->posX = posX;
-	this->posY = posY;
+Vector2f
+Knight::GetPosition() {
+	return position;
+}
+
+void
+Knight::SetPosition(Vector2f p) {
+	position = p;
 }
 
 void Knight::Update(Time deltaTime)
@@ -11,10 +16,5 @@ void Knight::Update(Time deltaTime)
 	// Calls the base class' Update function.
 	SpriteRenderer::Update(deltaTime);
 	// Update the knight's position.
-	this->_rectangle.setPosition(100, 0);
-}
 
-// Deletes everything on the heap.
-Knight::~Knight()
-{
 }

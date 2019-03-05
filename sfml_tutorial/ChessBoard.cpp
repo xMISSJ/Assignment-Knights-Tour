@@ -1,14 +1,14 @@
 #include "ChessBoard.h";
 
-ChessBoard::ChessBoard(RenderWindow &window, int sizeInput, int maxSize, int minSize)
+ChessBoard::ChessBoard(RenderWindow &window, int sizeInput, int maxSize, int minSize, Vector2f position)
 {
 	this->sizeInput = sizeInput;
 	this->maxSize = maxSize;
 	this->minSize = minSize;
+	this->position = position;
 
 	float width = window.getSize().x / sizeInput, height = window.getSize().y / sizeInput;
-	Knight Knight(int x, int y);
-	//_knightRenderer.Initialize("Textures/Knight.png", width, height);
+	_knightRenderer.Initialize("Textures/Knight.png", width, height);
 
 	_sprites.emplace_back(&_knightRenderer);
 	InitializeTiles(width, height);
@@ -31,7 +31,7 @@ ChessBoard::ChessBoard(RenderWindow &window, int sizeInput, int maxSize, int min
 void ChessBoard::InitializeTiles(int width, int height)
 {
 	for (int y = 0; y < sizeInput; y++)
-	{	
+	{
 		for (int x = 0; x < sizeInput; x++)
 		{
 			RectangleShape tile(Vector2f(width, height));

@@ -1,7 +1,6 @@
 #ifndef _KNIGHT_ // This header should only be defined once.
 #define _KNIGHT_
 #include "SpriteRenderer.h";
-#include <string>;
 
 using namespace sf;
 
@@ -19,13 +18,14 @@ class Knight : public SpriteRenderer
 private:
 	// Array with the 8 possible moves a knight could make from any square.
 	Knight_Moves movesArray[8] = { {2,1}, {1,2}, {-1,2}, {-2,1}, {-2,-1}, {-1,-2}, {1,-2}, {2,-1} };
-	int posX;
-	int posY;
+	Vector2f position;
 
 public:
-	Knight(int posX, int posY);        // Constructor.
-	~Knight();                                        // Destructor.
 	// Overrides the Update function from SpriteRenderer.
 	void Update(Time deltaTime);
+
+	// Getters and setter.
+	Vector2f GetPosition();
+	void SetPosition(Vector2f p);
 };
 #endif
