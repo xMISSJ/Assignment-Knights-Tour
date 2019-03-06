@@ -100,6 +100,6 @@ int main()
 
 	Vector2f rePosition = { rePosX, rePosY };
 
-	ChessBoard board(window, sizeInput, ChessBoard::MAX_SIZE, ChessBoard::MIN_SIZE, rePosition);
+	ChessBoard board(window, sizeInput, rePosition);
 	return 0;
 }
