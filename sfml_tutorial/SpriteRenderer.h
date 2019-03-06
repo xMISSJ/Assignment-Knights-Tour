@@ -15,7 +15,7 @@ protected:
 	Texture                     _texture;
 
 public:
-	void Initialize(String path, float width, float height);
+	void Initialize(String path, float width, float height, Vector2f position);
 	virtual void Update(Time deltaTime);
 	virtual void Draw(RenderWindow &window);
 };

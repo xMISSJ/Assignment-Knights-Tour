@@ -8,7 +8,8 @@ ChessBoard::ChessBoard(RenderWindow &window, int sizeInput, int maxSize, int min
 	this->position = position;
 
 	float width = window.getSize().x / sizeInput, height = window.getSize().y / sizeInput;
-	_knightRenderer.Initialize("Textures/Knight.png", width, height);
+	cout << position.x << " , " << position.y;
+	_knightRenderer.Initialize("Textures/Knight.png", width, height, position);
 
 	_sprites.emplace_back(&_knightRenderer);
 	InitializeTiles(width, height);
@@ -37,7 +38,7 @@ void ChessBoard::InitializeTiles(int width, int height)
 			RectangleShape tile(Vector2f(width, height));
 			tile.setPosition(x * width, y * height);
 
-			Color c = ((x + y) % 2) == 0 ? Color(50, 50, 50, 255) : Color(0, 100, 100, 255);
+			Color c = ((x + y) % 2) == 0 ? Color(255, 236, 251, 255) : Color(252, 146, 182, 255);
 			tile.setFillColor(c);
 
 			_tiles.emplace_back(tile);

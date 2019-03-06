@@ -1,9 +1,9 @@
 #include "SpriteRenderer.h"
 
-void SpriteRenderer::Initialize(String path, float width, float height)
+void SpriteRenderer::Initialize(String path, float width, float height, Vector2f position)
 {
 	_rectangle = RectangleShape(Vector2f(width, height));
-	_rectangle.setPosition(Vector2f(0, 0));
+	_rectangle.setPosition(position);
 
 	_texture.loadFromFile(path);
 	_rectangle.setTexture(&_texture);

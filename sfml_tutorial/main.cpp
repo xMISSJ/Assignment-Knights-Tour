@@ -74,6 +74,12 @@ int main()
 	RenderWindow window(VideoMode(512, 512), "Project Game Technology: Knight's Tour", Style::Titlebar | Style::Close);
 	window.setFramerateLimit(60);
 
-	ChessBoard board(window, sizeInput, maxSize, minSize, positionInput);
+	float rePosX = (positionInput.x * (117.3 * pow(0.86, sizeInput - 4))) - (117.3 * pow(0.86, sizeInput - 4));
+	float rePosY = (positionInput.y * (117.3 * pow(0.86, sizeInput - 4))) - (117.3 * pow(0.86, sizeInput - 4));
+
+
+	Vector2f rePosition = { rePosX, rePosY };
+
+	ChessBoard board(window, sizeInput, maxSize, minSize, rePosition);
 	return 0;
 }
