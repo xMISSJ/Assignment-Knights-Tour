@@ -1,22 +1,32 @@
 #include "Knight.h";
 
+// e.g. 0 = empty, 1 = filled.
+bool Knight::isVisited(bool &value)
+{
+	return value;
+}
+
 // Checks whether the move is inside the chessboard. 
-bool isMovePossible(Knight_Moves nextMove, int inputSize) {
+bool Knight::isMovePossible(Knight_Moves nextMove, int inputSize) 
+{
 	int moveX = nextMove.x;
 	int moveY = nextMove.y;
 
 	return (moveX >= 0 && moveX < inputSize) && (moveY >= 0 && moveY < inputSize);
 }
 
-// e.g. 0 = empty, 1 = filled.
-bool isVisited(bool value) {
-	return value;
+// Mark the position which has been visited.
+void Knight::mark(int &value, int counter) 
+{
+	value = counter;
+	counter++;
 }
 
-// Uses backtracking to find path.
-bool findPath(int x, int y) {
-	// Checks if current tile isn't in use.
-	if ()
+// Uses bruteforce backtracking to find path.
+bool Knight::findPath(int x, int y)
+{
+	//if (counter > ())
+
 }
 
 void Knight::Update(Time deltaTime)

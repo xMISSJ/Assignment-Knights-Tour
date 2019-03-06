@@ -18,22 +18,20 @@ void SetColor(int value) {
 
 int main()
 {
-	int                                sizeInput;
-	Vector2f                           positionInput;
-	int                                minPosition = 1;
-	int                                maxSize = 8;
-	int                                minSize = 5;
-	float															 rePosX;
-	float															 rePosY;
-	bool                               intro = false;
-	static const string                PROGRAM_NAME = "Knight's Tour";
-	static const string                PROGRAM_INTRO = "Welcome to ";
-	static const string                PROGRAM_INTRO2 = "\nPlease insert a number in the range of 5 to 8. \n";
-	static const string                PROGRAM_ERROR = "\nInvalid number. Please pick a number from 5 to 8.";
-	static const string                PROGRAM_INPUTX = "\nPlease enter the Knight's x start position min: 1 max: ";
-	static const string                PROGRAM_INPUTY = "\nNext. Enter the Knight's y start position min: 1 max: ";
-	static const string                PROGRAM_ERRORX = "\nInvalid input. Please pick an x-axis from 1 to ";
-	static const string                PROGRAM_ERRORY = "\nInvalid input. Please pick an y-axis from 1 to ";
+	int                           sizeInput;
+	Vector2f                      positionInput;
+	int                           minPosition = 1;
+	float										  		rePosX;
+	float												  rePosY;
+	bool                          intro = false;
+	static const string           PROGRAM_NAME = "Knight's Tour";
+	static const string           PROGRAM_INTRO = "Welcome to ";
+	static const string           PROGRAM_INTRO2 = "\nPlease insert a number in the range of 5 to 8. \n";
+	static const string           PROGRAM_ERROR = "\nInvalid number. Please pick a number from 5 to 8.";
+	static const string           PROGRAM_INPUTX = "\nPlease enter the Knight's x start position min: 1 max: ";
+	static const string           PROGRAM_INPUTY = "\nNext. Enter the Knight's y start position min: 1 max: ";
+	static const string           PROGRAM_ERRORX = "\nInvalid input. Please pick an x-axis from 1 to ";
+	static const string           PROGRAM_ERRORY = "\nInvalid input. Please pick an y-axis from 1 to ";
 
 	// Program shows error, so long there is no valid number (minSize-maxSize).
 	do {
@@ -47,10 +45,10 @@ int main()
 		}
 		cin >> sizeInput;
 
-		if (sizeInput < minSize || sizeInput > maxSize) {
+		if (sizeInput < ChessBoard::MIN_SIZE || sizeInput > ChessBoard::MAX_SIZE) {
 			cout << PROGRAM_ERROR << endl;
 		}
-	} while (sizeInput < minSize || sizeInput > maxSize);
+	} while (sizeInput < ChessBoard::MIN_SIZE || sizeInput > ChessBoard::MAX_SIZE);
 
 	// Program shows error, so long there is no valid position (minPosition-sizeInput).
 	do {
@@ -102,6 +100,6 @@ int main()
 
 	Vector2f rePosition = { rePosX, rePosY };
 
-	ChessBoard board(window, sizeInput, maxSize, minSize, rePosition);
+	ChessBoard board(window, sizeInput, ChessBoard::MAX_SIZE, ChessBoard::MIN_SIZE, rePosition);
 	return 0;
 }

@@ -15,8 +15,6 @@ class ChessBoard
 {
 private:
 	int                              sizeInput;
-	int                              maxSize;
-	int                              minSize;
 	Vector2f                         position;
 	vector<RectangleShape>           _tiles;
 	vector<SpriteRenderer*>          _sprites;
@@ -29,8 +27,11 @@ private:
 	void DrawChessBoard(RenderWindow &window);
 
 public:
-	ChessBoard(RenderWindow &window, int sizeInput, int maxSize, int minSize, Vector2f position);        // Constructor.
-	~ChessBoard();                                                                                       // Destructor.
+	static const int                 MAX_SIZE = 8;
+	static const int                 MIN_SIZE = 5;
+
+	ChessBoard(RenderWindow &window, int sizeInput, Vector2f position);        // Constructor.
+	~ChessBoard();																														 // Destructor.
 };
 
 #endif

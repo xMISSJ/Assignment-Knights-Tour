@@ -1,10 +1,8 @@
 #include "ChessBoard.h";
 
-ChessBoard::ChessBoard(RenderWindow &window, int sizeInput, int maxSize, int minSize, Vector2f position)
+ChessBoard::ChessBoard(RenderWindow &window, int sizeInput, Vector2f position)
 {
 	this->sizeInput = sizeInput;
-	this->maxSize = maxSize;
-	this->minSize = minSize;
 	this->position = position;
 
 	float width = window.getSize().x / sizeInput, height = window.getSize().y / sizeInput;

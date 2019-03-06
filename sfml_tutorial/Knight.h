@@ -1,8 +1,11 @@
 #ifndef _KNIGHT_ // This header should only be defined once.
 #define _KNIGHT_
 #include "SpriteRenderer.h";
+#include "ChessBoard.h";
 
 using namespace sf;
+
+extern int maxSize;
 
 // Data elements grouped together under one name.
 typedef struct Knight_Moves {
@@ -17,7 +20,13 @@ class Knight : public SpriteRenderer
 {
 private:
 	// Array with the 8 possible moves a knight could make from any square.
-	Knight_Moves movesArray[8] = { {2,1}, {1,2}, {-1,2}, {-2,1}, {-2,-1}, {-1,-2}, {1,-2}, {2,-1} };
+	Knight_Moves		movesArray[8] = { {2,1}, {1,2}, {-1,2}, {-2,1}, {-2,-1}, {-1,-2}, {1,-2}, {2,-1} };
+	int							counter = 1;		
+	int							board[ChessBoard::MAX_SIZE][ChessBoard::MAX_SIZE];
+	bool						isVisited(bool &value);
+	bool						isMovePossible(Knight_Moves nextMoves, int inputSize);
+	bool						findPath(int x, int y);
+	void						mark(int &value, int counter);
 
 public:
 	// Overrides the Update function from SpriteRenderer.
