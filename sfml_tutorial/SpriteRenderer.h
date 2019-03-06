@@ -9,12 +9,11 @@ using namespace sf;
 
 	class SpriteRenderer
 	{
-	protected:
-		Vector2f		_position;
+	public:
+		int posX;
 		RectangleShape	_rectangle;
 		Texture			_texture;
 
-	public:
 		void Initialize(String path, float width, float height);
 		virtual void Update(Time deltaTime);
 		virtual void Draw(RenderWindow &window);

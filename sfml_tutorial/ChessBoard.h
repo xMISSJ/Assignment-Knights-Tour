@@ -12,7 +12,7 @@ using std::vector;
 	class ChessBoard
 	{
 	private:
-		int														userInput;
+		int														boardSize;
 		vector<RectangleShape>				_tiles;
 		vector<SpriteRenderer*>				_sprites;
 		Knight												_knightRenderer;
@@ -24,7 +24,10 @@ using std::vector;
 		void DrawChessBoard(RenderWindow &window);
 
 	public:
-		ChessBoard(RenderWindow &window, int userInput); //constructor
+		static const int MIN_SIZE = 5;
+		static const int MAX_SIZE = 7;
+
+		ChessBoard(RenderWindow &window, int boardSize, int startPosX, int startPosY); //constructor
 		~ChessBoard(); //destructor
 	};
 

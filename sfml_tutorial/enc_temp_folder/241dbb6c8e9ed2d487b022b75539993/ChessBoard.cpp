@@ -7,6 +7,7 @@ ChessBoard::ChessBoard(RenderWindow &window, int boardSize, int startPosX, int s
 	float width = window.getSize().x / boardSize, height = window.getSize().y / boardSize;
 	_knightRenderer.Initialize(startPosX, startPosY, boardSize, width, height);
 
+
 	_sprites.emplace_back(&_knightRenderer);
 
 	InitializeTiles(width, height);
