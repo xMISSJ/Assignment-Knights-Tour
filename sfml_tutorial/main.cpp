@@ -23,6 +23,8 @@ int main()
 	int                                minPosition = 1;
 	int                                maxSize = 8;
 	int                                minSize = 5;
+	float															 rePosX;
+	float															 rePosY;
 	bool                               intro = false;
 	static const string                PROGRAM_NAME = "Knight's Tour";
 	static const string                PROGRAM_INTRO = "Welcome to ";
@@ -74,8 +76,28 @@ int main()
 	RenderWindow window(VideoMode(512, 512), "Project Game Technology: Knight's Tour", Style::Titlebar | Style::Close);
 	window.setFramerateLimit(60);
 
-	float rePosX = (positionInput.x * (117.3 * pow(0.86, sizeInput - 4))) - (117.3 * pow(0.86, sizeInput - 4));
-	float rePosY = (positionInput.y * (117.3 * pow(0.86, sizeInput - 4))) - (117.3 * pow(0.86, sizeInput - 4));
+	switch (sizeInput) {
+	case 5:
+		// 5 x 5
+		rePosX = (positionInput.x * 102) - 102;
+		rePosY = (positionInput.y * 102) - 102;
+		break;
+	case 6:
+		// 6 x 6 
+		rePosX = (positionInput.x * 85) - 85;
+	  rePosY = (positionInput.y * 85) - 85;
+		break;
+	case 7:
+		// 7 x 7
+		rePosX = (positionInput.x * 73) - 73;
+		rePosY = (positionInput.y * 73) - 73;
+		break;
+	case 8:
+		// 8 x 8
+		rePosX = (positionInput.x * 64) - 64;
+		rePosY = (positionInput.y * 64) - 64;
+		break;
+}
 
 
 	Vector2f rePosition = { rePosX, rePosY };
