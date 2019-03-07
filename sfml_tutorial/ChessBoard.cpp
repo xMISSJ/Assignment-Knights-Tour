@@ -1,15 +1,25 @@
 #include "ChessBoard.h";
 
-ChessBoard::ChessBoard(RenderWindow &window, int sizeInput, Vector2f position)
-{
-	this->sizeInput = sizeInput;
-	this->position = position;
+/*
+ *	This ChessBoard.cpp file handles the tiling of the board.
+ *  Includes adjusting tile colours.
+ */
 
-	float width = window.getSize().x / sizeInput, height = window.getSize().y / sizeInput;
-	cout << position.x << " , " << position.y;
-	_knightRenderer.Initialize("Textures/Knight.png", width, height, position);
+ /*!
+		 \param &window: the window to show the board and knight on. 
+		 \param boardSize: int which defines the boardSize (e.g. 5 x 5).
+		 \param startPosX: the start position of the x-coordinate which the user has chosen.
+		 \param startPosY: the start position of the y-coordinate which the user has chosen.
+ */
+ChessBoard::ChessBoard(RenderWindow &window, int boardSize, int startPosX, int startPosY)
+{
+	this->boardSize = boardSize;
+
+	float width = window.getSize().x / boardSize, height = window.getSize().y / boardSize;
+	_knightRenderer.Initialize(startPosX, startPosY, boardSize, width, height);
 
 	_sprites.emplace_back(&_knightRenderer);
+
 	InitializeTiles(width, height);
 
 	while (window.isOpen())
@@ -27,15 +37,23 @@ ChessBoard::ChessBoard(RenderWindow &window, int sizeInput, Vector2f position)
 	}
 }
 
+/*!
+		\param width: the width of the board.
+		\param height: the height of the board.
+*/
 void ChessBoard::InitializeTiles(int width, int height)
 {
-	for (int y = 0; y < sizeInput; y++)
-	{
-		for (int x = 0; x < sizeInput; x++)
+
+	if (boardSize < this->MIN_SIZE || boardSize > this->MIN_SIZE) {
+		cout << "Invalid input. Please pick a number between 5 and 7.";
+	}
+
+	for (int y = 0; y < boardSize; y++)
+	{	
+		for (int x = 0; x < boardSize; x++)
 		{
 			RectangleShape tile(Vector2f(width, height));
 			tile.setPosition(x * width, y * height);
-
 			Color c = ((x + y) % 2) == 0 ? Color(255, 236, 251, 255) : Color(252, 146, 182, 255);
 			tile.setFillColor(c);
 
@@ -75,7 +93,7 @@ void ChessBoard::DrawChessBoard(RenderWindow &window)
 
 }
 
-// Deletes everything on the heap.
 ChessBoard::~ChessBoard()
 {
+	// Deletes everything on the heap.
 }
