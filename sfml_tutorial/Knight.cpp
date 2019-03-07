@@ -3,7 +3,7 @@
 
 /*
  * This Knight.cpp file handles the knight sprite. 
- * Consists of an update function, in which the position of the knight is adjusted according to the Bruteforce backtrack algorithm.
+ * Consists of an update function, in which the position of the knight is adjusted according to the Brute Force backtrack algorithm.
  * Backtracking is a recursive method to make the knight move around.
  * Handles the visualisation and positioning of the knight sprite.
  */
@@ -83,6 +83,14 @@ void Knight::unmark(int &val) {
 	this->counter--;
 }
 
+bool Knight::unvisited(int &val) {
+	return val == 0;
+}
+
+bool Knight::canMove(int moveX, int moveY) {
+	return(moveX >= 0) && (moveX < this->boardSize) && (moveY >= 0) && (moveY < this->boardSize);
+}
+
  /*!
 		 \param x: the x-coordinate of the knight.
 		 \param y: the y-coordinate of the knight.
@@ -134,12 +142,4 @@ bool Knight::backtrack(int x, int y) {
 		unmark(board[x][y]);
 	}
 	return false;
-}
-
-bool Knight::unvisited(int &val) {
-	return val == 0;
-}
-
-bool Knight::canMove(int moveX, int moveY) {
-	return(moveX >= 0) && (moveX < this->boardSize) && (moveY >= 0) && (moveY < this->boardSize);
 }
