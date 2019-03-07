@@ -30,7 +30,6 @@ using namespace sf;
 		bool				unvisited(int &);
 		bool				canMove(int, int);
 		bool				backtrack(int, int);
-		void ChangeColor(int value);
 
 	public:
 		//override the Update function from SpriteRenderer.

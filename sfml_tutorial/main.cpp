@@ -32,11 +32,13 @@ int main()
 	static const string           PROGRAM_NAME = "Knight's Tour";
 	static const string           PROGRAM_INTRO = "Welcome to ";
 	static const string           PROGRAM_INTRO2 = "\nPlease insert a number in the range of 5 to 7. \n";
-	static const string           PROGRAM_ERROR = "\nInvalid number. Please pick a number from 5 to 7.";
+	static const string           *PROGRAM_ERROR;
 	static const string           PROGRAM_INPUTX = "\nPlease enter the Knight's x start position min: 1 max: ";
 	static const string           PROGRAM_INPUTY = "\nNext. Enter the Knight's y start position min: 1 max: ";
 	static const string           PROGRAM_ERRORX = "\nInvalid input. Please pick an x-axis from 1 to ";
 	static const string           PROGRAM_ERRORY = "\nInvalid input. Please pick an y-axis from 1 to ";
+
+	PROGRAM_ERROR = &PROGRAM_INTRO2;
 
 	// Program shows error, so long there is no valid number (minSize-maxSize).
 	do {
@@ -51,7 +53,7 @@ int main()
 		cin >> sizeInput;
 
 		if (sizeInput < ChessBoard::MIN_SIZE || sizeInput > ChessBoard::MAX_SIZE) {
-			cout << PROGRAM_ERROR << endl;
+			cout << *PROGRAM_ERROR;
 		}
 	} while (sizeInput < ChessBoard::MIN_SIZE || sizeInput > ChessBoard::MAX_SIZE);
 
