@@ -1,5 +1,16 @@
 #include "ChessBoard.h";
 
+/*
+ *	This ChessBoard.cpp file handles the tiling of the board.
+ *  Includes adjusting tile colours.
+ */
+
+ /*!
+		 \param &window: the window to show the board and knight on. 
+		 \param boardSize: int which defines the boardSize (e.g. 5 x 5).
+		 \param startPosX: the start position of the x-coordinate which the user has chosen.
+		 \param startPosY: the start position of the y-coordinate which the user has chosen.
+ */
 ChessBoard::ChessBoard(RenderWindow &window, int boardSize, int startPosX, int startPosY)
 {
 	this->boardSize = boardSize;
@@ -26,10 +37,14 @@ ChessBoard::ChessBoard(RenderWindow &window, int boardSize, int startPosX, int s
 	}
 }
 
+/*!
+		\param width: the width of the board.
+		\param height: the height of the board.
+*/
 void ChessBoard::InitializeTiles(int width, int height)
 {
 
-	if (boardSize < 5 || boardSize > 8) {
+	if (boardSize < this->MIN_SIZE || boardSize > this->MIN_SIZE) {
 		cout << "Invalid input. Please pick a number between 5 and 7.";
 	}
 
@@ -39,8 +54,7 @@ void ChessBoard::InitializeTiles(int width, int height)
 		{
 			RectangleShape tile(Vector2f(width, height));
 			tile.setPosition(x * width, y * height);
-
-			Color c = ((x + y) % 2) == 0 ? Color(50, 50, 50, 255) : Color(0, 100, 100, 255);
+			Color c = ((x + y) % 2) == 0 ? Color(255, 236, 251, 255) : Color(252, 146, 182, 255);
 			tile.setFillColor(c);
 
 			_tiles.emplace_back(tile);
@@ -81,5 +95,5 @@ void ChessBoard::DrawChessBoard(RenderWindow &window)
 
 ChessBoard::~ChessBoard()
 {
-	//delete everything on the heap.
+	// Deletes everything on the heap.
 }

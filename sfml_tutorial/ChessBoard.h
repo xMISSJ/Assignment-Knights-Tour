@@ -18,14 +18,14 @@ using std::vector;
 		Knight												_knightRenderer;
 		Clock													_deltaClock;
 
-		void Update();
-		void InitializeTiles(int w, int h);
-		void Draw(RenderWindow &window);
-		void DrawChessBoard(RenderWindow &window);
+		void													Update();
+		void													InitializeTiles(int w, int h);
+		void													Draw(RenderWindow &window);
+		void													DrawChessBoard(RenderWindow &window);
 
 	public:
-		static const int MIN_SIZE = 5;
-		static const int MAX_SIZE = 7;
+		static const int						 MIN_SIZE = 5;
+		static const int						 MAX_SIZE = 7;
 
 		ChessBoard(RenderWindow &window, int boardSize, int startPosX, int startPosY); //constructor
 		~ChessBoard(); //destructor

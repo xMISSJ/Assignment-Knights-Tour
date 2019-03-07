@@ -1,4 +1,4 @@
-//make sure that this header file is only defined once
+// This header should only be defined once.
 #ifndef _SPRITERENDERER_
 #define _SPRITERENDERER_
 
@@ -10,12 +10,12 @@ using namespace sf;
 	class SpriteRenderer
 	{
 	public:
-		int posX;
-		RectangleShape	_rectangle;
-		Texture			_texture;
+		int									posX;
+		RectangleShape			_rectangle;
+		Texture							_texture;
 
-		void Initialize(String path, float width, float height);
-		virtual void Update(Time deltaTime);
-		virtual void Draw(RenderWindow &window);
+		void								Initialize(String path, float width, float height);
+		virtual void				Update(Time deltaTime);
+		virtual void				Draw(RenderWindow &window);
 	};
 #endif
